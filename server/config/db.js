@@ -1,15 +1,13 @@
 const { createClient } = require("@supabase/supabase-js");
-    const supabaseUrl = process.env.SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_KEY;
-    const supabase = createClient(supabaseUrl, supabaseKey);
-    const fetchData = async () => {
-      try {
-        const { data, error } = await supabase.from("your_table_name").select("*");
-        if (error) throw error;
-        console.log("Data:", data);
-      } catch (err) {
-        console.error("Error fetching data:", err.message);
-      }
-    };
-    fetchData();
-    
+require("dotenv").config();  // Ensure dotenv is loaded
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_API_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+    throw new Error("Supabase credentials are missing. Check your .env file.");
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+module.exports = supabase;

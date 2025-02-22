@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 import { Navbar, NavbarBrand } from "../components/ui/navbar";
 import ParticlesBackground from "../components/ui/ParticlesBackground/ParticlesBackground";
 
-
 export default function SignupPage() {
-  const [form, setForm] = useState({ name: "", email: "", password: "", confirmPassword: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
   const [error, setError] = useState(""); // State for error messages
   const navigate = useNavigate();
 
@@ -18,7 +22,7 @@ export default function SignupPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Basic validation: check if passwords match
     if (form.password !== form.confirmPassword) {
       setError("Passwords do not match");
@@ -28,7 +32,7 @@ export default function SignupPage() {
     try {
       await axios.post("http://localhost:5000/api/auth/signup", form);
       console.log("Signup successful");
-      navigate("/login");
+      navigate("/");
     } catch (err) {
       console.log(err);
       setError(err.response?.data?.error || "Signup failed");
@@ -38,17 +42,19 @@ export default function SignupPage() {
   return (
     <>
       {/* Navbar */}
-      <ParticlesBackground/>
+      <ParticlesBackground />
       <Navbar className="fixed top-0 left-0 right-0 bg-black/75 backdrop-blur-md shadow-md px-12 py-4 flex justify-between items-center border border-white">
-        <NavbarBrand className="text-3xl font-extrabold text-white">DevEase</NavbarBrand>
+        <NavbarBrand className="text-3xl font-extrabold text-white">
+          DevEase
+        </NavbarBrand>
       </Navbar>
 
       <div className="flex min-h-screen items-center justify-center">
         <div className="w-full max-w-md bg-black border border-white p-8 shadow-lg">
           <h2 className="text-2xl font-bold text-white text-center">Sign Up</h2>
-          
+
           {error && <p className="text-red-400 text-center mt-2">{error}</p>}
-          
+
           <form className="mt-6" onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-white">Full Name</label>
