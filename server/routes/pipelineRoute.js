@@ -1,9 +1,8 @@
 const express = require("express");
-const { addProject, getProjects } = require("../controllers/projectController");
+const { createJenkinsPipeline } = require("../controllers/pipelineController");
 
 const router = express.Router();
 
-router.post("/add", addProject);
-router.get("/user/:userId", getProjects);
+router.post("/create", createJenkinsPipeline);
 
 module.exports = router;

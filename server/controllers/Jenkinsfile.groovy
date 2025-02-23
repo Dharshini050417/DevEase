@@ -59,10 +59,34 @@ pipeline {
             }
         }
 
+        stage('Setup Terraform for Project') {
+            steps {
+                script {
+                    def infraPath = "/var/bin/jenkins/infrastructure/${env.PROJECT_ID}"
+                    sh """
+                        mkdir -p ${infraPath}
+                        cp -r /var/lib/jenkins/terraform/* ${infraPath}
+                        sudo chown -R jenkins:jenkins ${infraPath}
+                        sudo chmod -R 775 ${infraPath}
+                    """
+                }
+            }
+        }
+
         stage('Provision EC2 Instance with Terraform') {
             steps {
                 script {
-                    sh "terraform apply -auto-approve"
+                    def infraPath = "/var/bin/jenkins/infrastructure/${env.PROJECT_ID}"
+                    sh """
+                        cd ${infraPath}
+                        terraform init
+                        terraform apply -auto-approve
+                        
+                        if [ -f "terraform.tfstate" ]; then
+                            sudo chown jenkins:jenkins terraform.tfstate*
+                            sudo chmod 664 terraform.tfstate*
+                        fi
+                    """
                 }
             }
         }
