@@ -2,6 +2,8 @@
 
 DevEase is a no-code CI/CD and hosting platform designed to automate deployment for developers without DevOps expertise. By providing a Git repository, branch name, root directory, and build instructions, users can set up a fully automated pipeline powered by Jenkins and Terraform. The platform supports deployment on the cloud, offering both containerized and VM-based hosting with a static project URL for continuous deployment.
 
+## DEMO LINK - [link](https://youtu.be/fzLkbwkgMPo?si=4z-24DzjQR53U_TT)
+
 ## 🚀 Key Features
 
 - *Automated CI/CD Pipeline* – Users provide project details, and a Jenkins pipeline is generated.
