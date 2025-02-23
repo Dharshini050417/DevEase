@@ -1,4 +1,4 @@
-# DevEase – Deploy Without DevOps
+![IMG-20250223-WA0016](https://github.com/user-attachments/assets/9ab23a60-40d8-4ce8-9292-52ef48e59e4d)# DevEase – Deploy Without DevOps
 
 DevEase is a no-code CI/CD and hosting platform designed to automate deployment for developers without DevOps expertise. By providing a Git repository, branch name, root directory, and build instructions, users can set up a fully automated pipeline powered by Jenkins and Terraform. The platform supports deployment on the cloud, offering both containerized and VM-based hosting with a static project URL for continuous deployment.
 
@@ -15,11 +15,18 @@ DevEase is a no-code CI/CD and hosting platform designed to automate deployment 
 ## 📌 Workflow
 
 1. *User Submits Repository & Preferences* – Provides GitHub/GitLab repo, cloud provider, and build commands.
+![IMG-20250223-WA0018](https://github.com/user-attachments/assets/0a6cd211-d5d2-499d-a80b-14e9553960f4)
 2. *Pipeline Setup* – Automatically creates a Jenkins pipeline.
+![WhatsApp Image 2025-02-23 at 17 55 51_415ea0c3](https://github.com/user-attachments/assets/71787c86-42f9-43de-8017-333310e942c1)
 3. *Build* – The code is built.
+![IMG-20250223-WA0016](https://github.com/user-attachments/assets/89f26549-6b66-4d9b-ba33-32d2d978247f)
 4. *Provisioning & Deployment:*
     - Terraform provisions infrastructure on the cloud.
+![IMG-20250223-WA0017](https://github.com/user-attachments/assets/5d682985-f981-401c-8a86-12eb5bcd8278)
+![IMG-20250223-WA0020](https://github.com/user-attachments/assets/c3dd3f07-7eec-42ea-80c5-f95803fd1172)
 5. *Continuous Updates* – Every new commit triggers the CI/CD pipeline and redeployment.
+![WhatsApp Image 2025-02-23 at 17 59 14_189e6fcc](https://github.com/user-attachments/assets/6b56edf3-6f7c-437e-9d77-a85a6f872c4d)
+![WhatsApp Image 2025-02-23 at 18 22 11_b0329a45](https://github.com/user-attachments/assets/29454152-fe42-4ab9-9a4f-9383db0554c7)
 
 ## 🎯 Target Users
 
