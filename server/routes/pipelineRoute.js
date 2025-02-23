@@ -1,10 +1,9 @@
 const express = require("express");
-const { createJenkinsPipeline } = require("../controllers/pipelineController");
-const { getDeploymentDetails } = require("../controllers/projectController");
+const { addProject, getProjects } = require("../controllers/projectController");
 
 const router = express.Router();
 
-router.post("/create", createJenkinsPipeline);
-router.get("/deployment/:projectId", getDeploymentDetails); // New Route
+router.post("/add", addProject);
+router.get("/user/:userId", getProjects);
 
 module.exports = router;
