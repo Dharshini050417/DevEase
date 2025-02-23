@@ -86,7 +86,10 @@ export default function DeployedProjectsDashboard() {
             const details = deploymentDetails[project.id];
 
             return (
+
               <Card key={project.id} className="w-[48%] bg-gray-900 shadow-lg">
+                      <ToastContainer />
+
                 <CardContent className="flex flex-col space-y-4 p-6">
                   <h2 className="text-2xl font-semibold">{project.name}</h2>
                   <p className="text-gray-400 text-sm">

@@ -4,12 +4,17 @@ import WholeNavbar from "./WholeNavbar";
 import { useNavigate } from "react-router-dom";
 import ParticlesBackground from "../components/ui/ParticlesBackground/ParticlesBackground";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function DevEaseNavbar() {
   const [fields, setFields] = useState([]);
 
   const [envFile, setEnvFile] = useState(null);
 
   const baseImages = ["node:18", "python:3.9", "golang:1.18", "nginx:latest", "ubuntu:20.04"];
+  const showSuccessToast = () => {
+    toast.success('This is a success message!');
+  };
 
   // Load fields from localStorage on mount
   useEffect(() => {
@@ -86,6 +91,8 @@ const handleSubmit = async (event) => {
       console.log(payload);
       
       // Navigate after processing
+      <ToastContainer />
+
       navigate("/dashboard"); // Correct usage
     };
 
@@ -208,8 +215,9 @@ const handleSubmit = async (event) => {
               + Add More Fields
             </Button>
             <Link to="/dashboard">
-            <Button type="submit" className="w-full mt-6 !bg-white hover:bg-gray-200 !text-black px-4 py-2 text-lg  shadow-lg">
+            <Button type="submit" onClick={showSuccessToast} className="w-full mt-6 !bg-white hover:bg-gray-200 !text-black px-4 py-2 text-lg  shadow-lg">
             Submit 
+            {/* This is where the toasts will appear */}
             </Button>
             </Link>
             
